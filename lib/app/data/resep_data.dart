@@ -23,7 +23,7 @@ Nasi goreng dengan topping ayam, sosis, dan telur.
 6. Aduk hingga nasi agak kering dan beraroma.
 7. Sajikan dengan taburan bawang goreng dan acar.
 ''',
-    'image': 'assets/images/sate.jpg',
+    'image': 'assets/images/nasi_goreng.jpg',
   },
   {
     'title': 'Mie Ayam Jamur',
@@ -47,7 +47,7 @@ Mie lembut dengan ayam jamur dan kuah gurih.
 4. Tambahkan kecap asin, kecap manis, garam, dan lada.
 5. Sajikan mie dengan topping ayam jamur di atasnya dan sedikit kuah kaldu.
 ''',
-    'image': 'assets/images/sate.jpg',
+    'image': 'assets/images/mie_ayam.jpg',
   },
   {
     'title': 'Sate Ayam Madura',
