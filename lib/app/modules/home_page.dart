@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            // Card identitas mahasiswa
             Card(
               elevation: 5,
               shape: RoundedRectangleBorder(
@@ -61,6 +62,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
@@ -68,8 +70,17 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
+
+            // Expanded GridView
             Expanded(
-              child: ListView.builder(
+              child: GridView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // 2 kolom
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 0.75, // tinggi card lebih tinggi dari lebar
+                ),
                 itemCount: resepList.length,
                 itemBuilder: (context, index) {
                   final resep = resepList[index];
@@ -85,27 +96,52 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     child: Card(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 10,
-                      ),
                       elevation: 3,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: ListTile(
-                        leading: const Icon(
-                          Icons.fastfood,
-                          color: Colors.blueAccent,
-                        ),
-                        title: Text(resep['title']!),
-                        subtitle: Text(resep['description']!
-                            .split('\n')
-                            .first), // tampilkan baris pertama saja
-                        trailing: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.blueAccent,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          // Image resep
+                          Expanded(
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                              ),
+                              child: Image.asset(
+                                resep['image']!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          // Judul & deskripsi
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  resep['title']!,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  resep['description']!.split('\n').first,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );

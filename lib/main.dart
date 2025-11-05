@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Inisialisasi controller agar Get.find() bisa dipakai di semua widget
     Get.put(NavController());
 
     return GetMaterialApp(
