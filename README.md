@@ -1,16 +1,2 @@
 # resepmakanan
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Aplikasi ini dibuat menggunakan Flutter dan GetX sebagai state management serta pengatur rute antar halaman. File utama main.dart berfungsi sebagai pintu masuk aplikasi yang menginisialisasi NavController agar bisa digunakan di seluruh widget dan mendefinisikan rute awal ke halaman home melalui AppRoutes. Di dalam app_routes.dart, terdapat daftar semua rute halaman yang terhubung dengan GetPage, seperti home, about, contact, tips, dan detail, sehingga navigasi menjadi lebih mudah. NavController sendiri, yang berada di nav_controller.dart, mengatur logika perpindahan halaman dengan menyimpan nama rute yang sedang aktif dan mencegah perpindahan ke halaman yang sama agar navigasi lebih efisien. Halaman utama HomePage menampilkan identitas mahasiswa beserta daftar resep makanan dalam bentuk card, dan ketika salah satu resep dipilih, aplikasi akan berpindah ke DetailPage untuk menampilkan judul serta deskripsinya. Halaman AboutPage, ContactPage, dan TipsPage masing-masing memiliki konten statis berupa informasi tentang chef, kontak, dan tips memasak, serta menampilkan CustomBottomNav di bagian bawah agar pengguna dapat berpindah antarhalaman dengan mudah. CustomBottomNav adalah widget navigasi bawah yang menampilkan ikon dan label untuk home, tips, tentang chef, dan kontak, serta mengatur rute yang sesuai berdasarkan indeks yang dipilih. Selain itu, CustomDrawer menyediakan menu samping yang juga memungkinkan navigasi cepat ke halaman-halaman utama dengan menutup drawer setelah halaman dipilih. Semua halaman menggunakan gaya visual yang konsisten dengan kombinasi warna biru dan ikon khas untuk memperjelas fungsi setiap bagian. Sementara itu, file recipe_card.dart dihapus karena tidak digunakan di mana pun dalam aplikasi, sehingga membuat struktur kode lebih bersih dan efisien. Secara keseluruhan, aplikasi ini dirancang dengan struktur modular yang rapi, navigasi yang intuitif menggunakan GetX, serta tampilan sederhana yang menonjolkan informasi resep dan profil chef secara terorganisir.
